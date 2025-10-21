@@ -1,0 +1,937 @@
+ /* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #121212;
+    --primary-text-color: #EAEAEA;
+    --secondary-text-color: #B3B3B3;
+    --accent-purple: #9B59B6;
+    --accent-blue: #3498DB;
+    --glass-bg: rgba(44, 44, 44, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    overflow-x: hidden;
+}
+
+section {
+    padding: 6rem 8%;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-text-color);
+}
+
+/* --- Header & Navigation --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 8%;
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-text-color);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-text-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--bg-color), rgba(18, 18, 18, 0.5));
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1;
+    max-width: 1200px;
+}
+
+.hero-image-container {
+    flex-shrink: 0;
+}
+
+.slide {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    box-shadow: 0 0 10px #66ccff, 0 0 20px #66ccff;
+    animation: glow 3s infinite alternate;
+}
+
+.slide.glitch {
+  animation: glitch 0.3s linear;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    filter: contrast(200%) brightness(150%) hue-rotate(20deg);
+  }
+  25% {
+    transform: translate(-5px, 5px);
+    filter: grayscale(100%) blur(1px);
+  }
+  50% {
+    transform: translate(5px, -5px);
+    filter: hue-rotate(90deg);
+  }
+  75% {
+    transform: translate(-3px, 3px);
+    filter: contrast(300%) brightness(200%);
+  }
+  100% {
+    transform: translate(0);
+    filter: none;
+  }
+}
+
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #66ccff, 0 0 10px #66ccff;
+  }
+  100% {
+    box-shadow: 0 0 20px #66ccff, 0 0 0px #66ccff;
+  }
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    text-align: left;
+    margin: 1rem 0;
+    color: var(--primary-text-color);
+    
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    max-width: 500px;
+}
+
+/* --- Work Experience Section --- */
+.experience {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.scanning-lens {
+    display: inline-block;
+    animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-5deg) scale(1.1);
+    }
+    50% {
+        transform: rotate(5deg) scale(1.1);
+    }
+    75% {
+        transform: rotate(-5deg) scale(1.1);
+    }
+}
+
+.experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('https://www.transparenttextures.com/patterns/circuit-board.png'),
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+    background-size: cover, auto, auto, auto;
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    background-position: center, 20% 80%, 80% 20%, 40% 40%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.experience-card1 { 
+    background-image: url(aset/topkomputer.jpg);
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(100%);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    size: 3px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card2 { 
+    background-image: url(aset/WhatsApp\ Image\ 2025-10-12\ at\ 17.19.51_ef7682a8.jpg);
+    background-position: center;
+    background-size: cover;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.experience-card2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-purple);
+}
+
+.experience-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-card1 h3 {
+    font-size: 1.25rem;
+    background-color: #3434db;
+    margin-bottom: 0.5rem;
+    -webkit-text-stroke: 1px black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.experience-card2 h3 {
+    font-size: 1.25rem;
+    background-color: #3434db;
+    margin-bottom: 0.5rem;
+    -webkit-text-stroke: 1px black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.experience-card p {
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.experience-card1 p {
+    color: white;
+    font-weight: bold;
+    -webkit-text-stroke: 1px black;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.experience-card2 p {
+    color: white;
+    font-weight: bold;
+    -webkit-text-stroke: 1px black;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.card-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+.card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+}
+
+/* --- BAGIAN BARU: Skills & Tools Section --- */
+/* style.css */
+
+/* HAPUS SEMUA STYLE LAMA UNTUK .skills-tools dan turunannya, LALU GANTI DENGAN INI */
+
+.skills-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 4rem 8%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.skills-tools::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('https://www.transparenttextures.com/patterns/circuit-board.png'),
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+    background-size: cover, auto, auto, auto;
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    background-position: center, 20% 80%, 80% 20%, 40% 40%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.skills-intro-container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-bottom: -8rem; /* Tarik teks ke atas */
+}
+
+.skills-intro {
+    font-size: 1.6rem;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.highlight-text {
+    color: var(--accent-purple);
+    font-weight: 600;
+}
+
+.orbit-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 1000px; /* Memberi efek 3D */
+}
+
+/* Planet di Tengah */
+.planet {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url(aset/gogem.png);
+    background-position: -70px center;
+    background-size: 150%;
+    box-shadow: 0 0 50px rgba(155, 89, 182, 0.5), inset 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.central-logo {
+    font-size: 5rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff, 0 0 20px var(--accent-purple), 0 0 30px var(--accent-purple);
+}
+
+/* Ikon Statis di Atas */
+.static-skills {
+    position: absolute;
+    bottom: 50px; /* Sesuaikan posisi vertikal */
+    display: flex;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+.skill-static-item {
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 16, 51, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid rgba(155, 89, 182, 0.3);
+    position: relative;
+}
+
+.skill-static-item img {
+    width: 100%;
+}
+
+/* Garis Penghubung */
+.skill-static-item::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; /* Panjang garis */
+    left: 50%;
+    width: 1px;
+    height: 150px;
+    background: linear-gradient(to top, rgba(155, 89, 182, 0.8), transparent);
+    transform-origin: top center;
+}
+
+/* Miringkan garis agar menunjuk ke tengah planet */
+.skill-static-item:nth-child(1) { transform: rotate(-30deg); }
+.skill-static-item:nth-child(2) { transform: rotate(-20deg); }
+.skill-static-item:nth-child(3) { transform: rotate(-10deg); }
+.skill-static-item:nth-child(4) { transform: rotate(0deg); }
+.skill-static-item:nth-child(5) { transform: rotate(10deg); }
+.skill-static-item:nth-child(6) { transform: rotate(20deg); }
+.skill-static-item:nth-child(7) { transform: rotate(30deg); }
+
+/* Jalur Orbit */
+.orbit-path {
+    position: absolute;
+    width: var(--orbit-size);
+    height: var(--orbit-size);
+    border: 1px solid rgba(155, 89, 182, 0.2);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    animation: orbit var(--orbit-duration) linear infinite;
+}
+
+/* Ikon yang Mengorbit */
+.skill-orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    height: 45px;
+    margin: -22.5px;
+    border-radius: 50%;
+    background: rgba(30, 16, 51, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    border: 1px solid rgba(155, 89, 182, 0.3);
+    /* Hitung posisi dan lakukan counter-rotate agar ikon tidak ikut berputar */
+    transform: rotateZ(calc(-1 * var(--orbit-position))) 
+               translateY(calc(var(--orbit-size) / 2)) 
+               rotateZ(var(--orbit-position))
+               rotateX(-70deg); /* Counter-tilt agar ikon menghadap ke depan */
+}
+
+.skill-orbit-item img {
+    width: 100%;
+    filter: brightness(0.9);
+}
+
+/* Keyframes untuk animasi orbit */
+@keyframes orbit {
+    from {
+        transform: rotateX(70deg) rotateZ(0deg);
+    }
+    to {
+        transform: rotateX(70deg) rotateZ(360deg);
+    }
+}
+
+
+
+/* --- Projects Section --- */
+.projects {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.flying-rocket {
+    display: inline-block;
+    animation: fly 2s ease-in-out infinite;
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('https://www.transparenttextures.com/patterns/circuit-board.png'),
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+    background-size: cover, auto, auto, auto;
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    background-position: center, 20% 80%, 80% 20%, 40% 40%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.project-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    flex-grow: 1;
+}
+
+/* --- Contact / Footer --- */
+.contact {
+    text-align: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('https://www.transparenttextures.com/patterns/circuit-board.png'),
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+    background-size: cover, auto, auto, auto;
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    background-position: center, 20% 80%, 80% 20%, 40% 40%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    color: var(--secondary-text-color);
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #2c2c2c;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--primary-text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--secondary-text-color);
+}
+
+.btn-submit {
+    padding: 0.9rem 2rem;
+    background: var(--accent-purple);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #8e44ad;
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 2rem;
+    margin-top: 3rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(44, 44, 44, 0.5);
+    color: var(--secondary-text-color);
+    transition: all 0.3s ease;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a:hover {
+    color: var(--accent-purple);
+    transform: translateY(-5px);
+    background: rgba(155, 89, 182, 0.2);
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        text-align: center;
+        font-size: larger;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    section, .contact { padding: 4rem 5%; }
+
+    .skills-intro { font-size: 1.5rem; }
+    .skill-item { width: 70px; height: 70px; }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: var(--bg-color);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 5% auto;
+    padding: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    color: var(--secondary-text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+.modal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal-image {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+}
+
+.modal-text {
+    text-align: center;
+}
+
+.modal-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+}
+
+.modal-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    max-width: 600px;
+}
+
+/* Responsive Modal */
+@media (min-width: 768px) {
+    .modal-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .modal-image {
+        width: 50%;
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+
+    .modal-text {
+        flex: 1;
+        text-align: left;
+    }
+}
+
+/* --- Fade-in Animation on Scroll --- */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+
+
