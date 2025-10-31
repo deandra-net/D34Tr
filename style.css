@@ -322,7 +322,6 @@ h2 {
     font-size: 1.25rem;
     background-color: #3434db;
     margin-bottom: 0.5rem;
-    -webkit-text-stroke: 1px black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -330,7 +329,6 @@ h2 {
     font-size: 1.25rem;
     background-color: #3434db;
     margin-bottom: 0.5rem;
-    -webkit-text-stroke: 1px black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -930,6 +928,7 @@ h2 {
     filter: blur(0);
     transform: translateY(0);
 }
+
 
 
 
