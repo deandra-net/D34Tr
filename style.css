@@ -343,7 +343,6 @@ h2 {
 .experience-card1 p {
     color: white;
     font-weight: bold;
-    -webkit-text-stroke: 1px black;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
 }
@@ -351,7 +350,6 @@ h2 {
 .experience-card2 p {
     color: white;
     font-weight: bold;
-    -webkit-text-stroke: 1px black;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
 }
@@ -932,6 +930,7 @@ h2 {
     filter: blur(0);
     transform: translateY(0);
 }
+
 
 
 
